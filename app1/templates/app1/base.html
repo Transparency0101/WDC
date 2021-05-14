@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Подключения css, images и fonts -->
+{% load static %}
+<html lang="ru">
+
+<head>
+  <!--Кодировка-->
+  <meta charset="UTF-8" />
+  <!--Мета описание страницы, автора, прав и ключ. слов-->
+  <meta name="author" content="Transparency" />
+  <meta name="copyright" content="Transparency and Яша" />
+  <meta name="address" content="Yuggoth planet" />
+  {% block meta_html %}{% endblock %}
+  <!--Индексация в браузерах-->
+  <meta name="robots" content="none" />
+  <!--Обновление страницы-->
+  <meta http-equiv="refresh" content="300, url=/home" />
+  <!--Подключение css, icon и js -->
+  <link rel="stylesheet" href="{% static 'app1/css/style.css' %}" />
+  <link rel="icon" href="{% static 'app1/images/icon/Martz90-Circle-Weather.ico' %}" type="image/icon" />
+  <script src="{% static 'app1/js/script.js' %}"></script>
+  <!-- Блок с заголовком страницы -->
+  <title>{% block title_html %}{% endblock %}</title>
+  <!-- Стиль для страницы -->
+  {% block style_html %}{% endblock %}
+</head>
+
+<body>
+  <!-- Файл с шапкой сайта -->
+  {% include 'app1/repeat/header.html' %}
+  <!-- Оновная часть страницы -->
+  {% block body_html %}{% endblock %}
+  <!-- Файл с footer -->
+  {% include 'app1/repeat/footer.html' %}
+</body>
+
+</html>

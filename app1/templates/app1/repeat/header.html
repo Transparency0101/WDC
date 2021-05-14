@@ -1,0 +1,45 @@
+<!-- Шапка для страницы -->
+<!-- Подключается с помощю include -->
+{% block style_html %}
+<style>
+  /* Что бы шапка прилегала к рамкам страницы */
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  /* Контуры шапки */
+  header {
+    background: red;
+    border: 3px solid;
+  }
+
+  nav {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px;
+    word-spacing: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  a:hover {
+    text-shadow: 2px 2px 2px #000;
+    color: #DF5C5C;
+  }
+</style>
+{% endblock %}
+<!-- Шапка -->
+<header>
+  <!-- Навигация -->
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <a href="/">Welcome</a>
+    <a href="/calendar">Calendar</a>
+    <a href="/form">Form</a>
+  </nav>
+</header>

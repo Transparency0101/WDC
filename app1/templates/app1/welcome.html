@@ -1,0 +1,45 @@
+<!-- Наследование главного html страницы -->
+{% extends 'app1/base.html' %}
+
+<!-- Мета теги -->
+{% block meta_html %}
+<meta name="descriptription" content="Ппосто привествие " />
+<meta name="keywords" content="Welcome" />
+{% endblock %}
+
+<!-- Стиль для страницы -->
+{% block style_html %}
+<style>
+  /* Контуры для слова welcome */
+  .borderForWecome {
+    border: 3px solid;
+    margin: 200px;
+    width: 1000px;
+    height: 100px;
+    box-shadow: 2px 2px 2px 2px #000;
+    background-color: red;
+  }
+
+  /* Размер и толщина фрифта */
+  .fontsForWelcome {
+    font-size: 79px;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+{% endblock %}
+
+<!-- Заголовок -->
+{% block title_html %}
+Welcome
+{% endblock %}
+
+<!-- Оновная часть -->
+{% block body_html %}
+<!-- Просто надпись -->
+<div class="borderForWecome">
+  <div class="fontsForWelcome">
+    Welcome
+  </div>
+</div>
+{% endblock %}

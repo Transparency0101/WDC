@@ -1,0 +1,51 @@
+<!-- Наследование главного html страницы -->
+{% extends 'app1/base.html' %}
+
+<!-- Мета теги -->
+{% block meta_html %}
+<meta name="descriptription" content="Основная страница" />
+<meta name="keywords" content="Home, Погода" />
+{% endblock %}
+
+<!-- Стиль  -->
+{% block style_html %}
+<style>
+  .borderForWeather {
+    margin: 100px 0px 0px 430px;
+    border: 3px solid;
+    background-color: #ED1616;
+    width: 600px;
+    height: 400px;
+    box-shadow: 2px 2px 2px #000;
+    padding: 15px;
+  }
+
+  .FontsForWeather {
+    font-size: 30px;
+  }
+</style>
+{% endblock %}
+
+<!-- Заголовок -->
+{% block title_html %}
+Home
+{% endblock %}
+
+<!-- Оновная часть -->
+{% block body_html %}
+<section class="borderForWeather">
+  <p style="font-size: 40px;text-align: center;">Погода</p>
+  <div class="FontsForWeather">
+    <p>В Украине:</p><br />
+    <p>Температура: {{ t1 }}</p>
+    {% if t1 < 10 %} <p>Прохладно</p>
+      {% else %}
+      <p>Норм погода</p>
+      {% endif %}
+      <p>Ощущается как: {{ t2 }}</p><br />
+      <p>Максимальная: {{ t3 }}</p><br />
+      <p>Минимальная: {{ t4 }}</p><br />
+
+  </div>
+</section>
+{% endblock %}

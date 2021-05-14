@@ -1,0 +1,43 @@
+<!-- Наследование главного html страницы -->
+{% extends 'app1/base.html' %}
+
+<!-- Мета теги -->
+{% block meta_html %}
+<meta name="descriptription" content="Результаты формы" />
+<meta name="keywords" content="" />
+{% endblock %}
+
+<!-- Стиль для страницы -->
+{% block style_html %}
+<style>
+  .ForForm {
+    background-color: red;
+    border: 3px solid #000;
+    margin: 150px 400px 0px 400px;
+    height: 300px;
+    width: 300;
+    padding: 20px;
+  }
+
+  .textFonts {
+    font-size: 30px;
+  }
+</style>
+{% endblock %}
+
+<!-- Заголовок -->
+{% block title_html %}
+Form result
+{% endblock %}
+
+<!-- Оновная часть -->
+{% block body_html %}
+<section class="ForForm">
+  <div class="textFonts">
+    {{ name }}<br />
+    {{ surname }}<br />
+    {{ age }}<br />
+    {{ born }}
+  </div>
+</section>
+{% endblock %}
