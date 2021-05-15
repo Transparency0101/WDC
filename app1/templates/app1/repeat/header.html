@@ -1,4 +1,6 @@
-<!-- Подключается с помощю include -->
+<!-- Подключается с помощю include в base.html -->
+<!-- CSS код -->
+<!--! Сюда пиши css код -->
 {% block style_html %}
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
@@ -121,16 +123,14 @@
 <div class="wrapper">
   <header class="header">
     <div class="container">
-
       <!-- Название сайта -->
       <a href="#" class="header__title">Weather Data time Calendar</a>
-
       <!-- Меню бургер -->
       <div class="menu__icon menu">
         <span></span>
       </div>
 
-      <!-- Суда можешь добовлять свои нужды -->
+      <!-- Ссылки на html шаблоны -->
       <div class="menu__body">
         <ul class="menu__list">
           <li><a href="#" class="menu__link"></a>
@@ -141,11 +141,10 @@
           <li><a href="/" class="menu__link">Welcome</a></li>
         </ul>
       </div>
-
     </div>
   </header>
 </div>
-<!-- Menu burger от Яши -->
+<!-- Menu burger js -->
 {% block js_html %}
 <script>
   "use strict";
