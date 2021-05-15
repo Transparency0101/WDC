@@ -47,8 +47,9 @@ def welcome(request):
 
 
 def home(request):
-    # Ипорт модуля
+    # Ипорт модулей
     from pyowm import OWM
+    import datetime
     # Мой ключь
     owm = OWM('e492ec8cc006356f2d843bb65e42f709')
     # Управление погодой
@@ -58,16 +59,14 @@ def home(request):
     w = place_weather.weather
     # Температура в цельсиях
     t = w.temperature("celsius")
-    # Температура
     t1 = t['temp']
-    # Ощущается
     t2 = t['feels_like']
-    # Максимальная
     t3 = t['temp_max']
-    # Минимальная
     t4 = t['temp_min']
+    # Дата и время
+    time = datetime.datetime.today()
     # Передача в шаблон home
-    data = {'t1': t1, 't2': t2, 't3': t3, 't4': t4, }
+    data = {'t1': t1, 't2': t2, 't3': t3, 't4': t4, "time": time}
     # Представление на главную
     return render(request, "app1/home.html", context=data)
 
