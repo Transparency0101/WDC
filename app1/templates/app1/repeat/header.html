@@ -1,45 +1,161 @@
-<!-- Шапка для страницы -->
 <!-- Подключается с помощю include -->
 {% block style_html %}
 <style>
-  /* Что бы шапка прилегала к рамкам страницы */
-  * {
-    margin: 0px;
-    padding: 0px;
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+  /*font-family: 'Montserrat', sans-serif;*/
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
   }
 
-  /* Контуры шапки */
-  header {
-    background: red;
-    border: 3px solid;
-  }
-
-  nav {
-    font-weight: bold;
-    font-size: 30px;
-    padding: 10px;
-    word-spacing: 20px;
+  ul,
+  li {
+    list-style: none;
   }
 
   a {
     text-decoration: none;
-    color: #000;
+    color: #ffff;
+    font-weight: 900;
+    font-size: 25px;
   }
 
-  a:hover {
-    text-shadow: 2px 2px 2px #000;
-    color: #DF5C5C;
+  .container {
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+
+  .header {
+    background: black;
+    height: 60px;
+    z-index: 10;
+  }
+
+  .header__title {
+    font-size: 20px;
+    font-weight: 900;
+    z-index: 100;
+  }
+
+  .menu__icon {
+    display: block;
+    width: 38px;
+    height: 18px;
+    z-index: 5;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .menu__icon::before,
+  .menu__icon::after,
+  .menu__icon span {
+    width: 100%;
+    height: 10%;
+    background: #ffff;
+    position: absolute;
+    transition: 0.5s ease;
+  }
+
+  .menu__icon::before,
+  .menu__icon::after {
+    content: "";
+  }
+
+  .menu__icon::before {
+    top: 0;
+  }
+
+  .menu__icon::after {
+    bottom: 0;
+  }
+
+  .menu__icon span {
+    top: 50%;
+    transform: scale(1) translate(0, -50%);
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 20%;
+    height: 100%;
+    text-align: left;
+    background: rgb(10, 10, 10);
+    overflow: auto;
+    padding: 10px 0px 0px 0px;
+    transition: right 0.55s ease;
+  }
+
+  .menu__body.active {
+    right: 0;
+  }
+
+  .menu__icon.active span {
+    transform: scale(0) translate(0px, -50%);
+  }
+
+  .menu__icon.active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+
+  .menu__icon.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+
+  .menu__link {
+    margin-top: 10px;
   }
 </style>
 {% endblock %}
 <!-- Шапка -->
-<header>
-  <!-- Навигация -->
-  <nav>
-    <a href="/home">Home</a>
-    <a href="/about">About</a>
-    <a href="/">Welcome</a>
-    <a href="/calendar">Calendar</a>
-    <a href="/form">Form</a>
-  </nav>
-</header>
+<div class="wrapper">
+  <header class="header">
+    <div class="container">
+
+      <!-- Название сайта -->
+      <a href="#" class="header__title">Weather Data time Calendar</a>
+
+      <!-- Меню бургер -->
+      <div class="menu__icon menu">
+        <span></span>
+      </div>
+
+      <!-- Суда можешь добовлять свои нужды -->
+      <div class="menu__body">
+        <ul class="menu__list">
+          <li><a href="#" class="menu__link"></a>
+          <li><a href="/calendar">Calendar</a></li>
+          <li><a href="/form" class="menu__link">Form</a></li>
+          <li><a href="/home" class="menu__link">Home</a></li>
+          <li><a href="/about" class="menu__link">About</a></li>
+          <li><a href="/" class="menu__link">Welcome</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
+</div>
+<!-- Menu burger от Яши -->
+{% block js_html %}
+<script>
+  "use strict";
+
+  const menuIcon = document.querySelector('.menu__icon');
+  const menuBody = document.querySelector('.menu__body');
+
+  menuIcon.addEventListener('click', (e) => {
+    menuIcon.classList.toggle('active');
+    menuBody.classList.toggle('active');
+  });
+</script>
+{% endblock %}
