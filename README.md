@@ -2,7 +2,7 @@
 In cmd write: 
 
 ```
-**python manage.py runserver.**
+python manage.py runserver.
 ```
 In the search bar enter [localhost](127.0.0.1: 8000)
 
