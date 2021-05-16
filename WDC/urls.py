@@ -15,20 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls.conf import include
 # Импорт функция представлений
 from app1 import views
 
 urlpatterns = [
-    # Путь к регистрации
-    path("form", views.form, name="form"),
-    # Путь к странице о нас
-    path("about", views.about, name="about"),
-    # Путь к представлению к основной странице
-    path("home", views.home, name="home"),
-    # Путь к представлению календарь
-    path("calendar", views.calendar, name="calendar"),
-    # Путь к представлению привествия
-    path("", views.welcome, name="welcome"),
+    # Импорт в urls.py папке app1
+    path('', include("app1.urls")),
     # Админка
     path('admin/', admin.site.urls),
 ]

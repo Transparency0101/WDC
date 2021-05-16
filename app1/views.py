@@ -10,43 +10,13 @@ from .form import UserForm
 from django.http import HttpResponseRedirect
 
 
-class HttpErrors_class:
-    # Класс http ошибок
-    @classmethod
-    def m304(self, request):
-        return HttpResponseNotModified()
-
-    @classmethod
-    def m400(self, request):
-        return HttpResponseBadRequest("<h2>Bad Request</h2>")
-
-    @classmethod
-    def m403(self, request):
-        return HttpResponseForbidden("<h2>Forbidden</h2>")
-
-    @classmethod
-    def m404(request, self):
-        return HttpResponseNotFound("<h2>Not Found</h2>")
-
-    @classmethod
-    def m405(self, request):
-        return HttpResponseNotAllowed("<h2>Method is not allowed</h2>")
-
-    @classmethod
-    def m410(self, request):
-        return HttpResponseGone("<h2>Content is no longer here</h2>")
-
-    @classmethod
-    def m500(self, request):
-        return HttpResponseServerError("<h2>Something is wrong</h2>")
-
-
 def welcome(request):
     # Представление на встречю
     return render(request, "app1/welcome.html")
 
 
 def home(request):
+
     # Ипорт модулей
     from pyowm import OWM
     import datetime
